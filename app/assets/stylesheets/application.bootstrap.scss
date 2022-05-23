@@ -1,0 +1,11 @@
+@font-face {
+  font-family: nova;
+  src: url(../fonts/Proxima-Nova/Proxima Nova Font.otf);
+}
+
+h1 {
+  font-family: nova;
+}
+
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons';
