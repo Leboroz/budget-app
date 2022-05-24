@@ -1,29 +1,9 @@
+@use './variables' as *;
 @use './animations/alert' as *;
-
+@use './components/card';
+@use './pages/home';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-
-$font-family-sans-serif:
-  // Cross-platform generic font family (default user interface font)
-  "Montserrat",
-  // Safari for macOS and iOS (San Francisco)
-  -apple-system,
-  // Windows
-  "Segoe UI",
-  // Android
-  Roboto,
-  // older macOS and iOS
-  "Helvetica Neue"
-  // Linux
-  "Noto Sans",
-  "Liberation Sans",
-  // Basic web fallback
-  Arial,
-  // Sans serif fallback
-  sans-serif,
-  // Emoji fonts
-  "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-   
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
@@ -42,11 +22,27 @@ h6 {
 
 body {
   margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-gray {
+  color: rgba($text-color, $alpha: 0.6);
 }
 
 .alert {
   transform: translate(-100%);
   animation: slide-in-out 3s ease forwards;
+}
+
+.section {
+  background-color: #eee;
+  height: 100%;
 }
 
 @include alert;

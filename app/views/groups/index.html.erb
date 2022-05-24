@@ -1,2 +1,33 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<article class="d-flex flex-column section">
+  <nav class="navbar navbar-dak bg-primary">
+    <div class="container-fluid text-center">
+      <h2 class="navbar-brand mb-0 flex-grow-1 text-white fw-light">Most recent</h2>
+    </div>
+  </nav>
+  <div class="container-fluid p-3 flex-grow-1">
+    <% @groups.each do |group| %>
+      <div class="group-card d-flex gap-2 mb-3 p-1 bg-light">
+        <figure class="figure">
+          <%= image_tag(group.icon) %>
+        </figure>
+        <div class="d-flex flex-column justify-content-between pt-2">
+          <h2 class="fs-5 fw-light text-gray mb-3"><%= group.name%></h2>
+          <h2 class="fs-6 fw-light text-gray m-0"><%= group.created_at%></h2>
+        </div>
+        <span>total p</span>
+      </div>
+    <% end %>
+  </div>
+  <div class="bg-secondary p-2 d-flex">
+    <button type="button" class="btn btn-outline-light flex-grow-1" data-bs-toggle="modal" data-bs-target="#newCategoryModal">
+      Add new category
+    </button>
+    <div class="modal fade" id="newCategoryModal" tabindex="-1" aria-labelledby="newCategoryModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <%= render partial: 'groups/add_category_form', locals: { category: Group.new }%>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

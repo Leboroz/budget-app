@@ -7,15 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= render partial: 'shared/navbar' %>
-    <% if notice %>
-      <div class="alert alert-success"><%= notice %></div>
-    <% elsif alert %>
-      <div class="alert alert-danger"><%= alert %></div>
-    <% end %>
-    <%= yield %>
+    <div class="main">
+      <%= render partial: 'shared/navbar' %>
+      <% if notice %>
+        <div class="alert alert-success position-absolute top-0 start-0"><%= notice %></div>
+      <% elsif alert %>
+        <div class="alert alert-danger"><%= alert %></div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
