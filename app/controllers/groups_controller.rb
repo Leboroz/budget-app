@@ -6,6 +6,7 @@ class GroupsController < ApplicationController
   def create
     new_group = Group.new(groups_params)
     new_group.author = current_user
+
     respond_to do |format|
       format.html do
         if new_group.save
