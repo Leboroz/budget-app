@@ -1,0 +1,66 @@
+<%= form_with(model: category, url: groups_url, scope: :category, class: 'text-black') do |f| %>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add category</h5>
+  </div>
+
+  <div class="modal-body">
+    <% if category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(category.errors.count, 'error') %> prohibited this category from being saved:</h2>
+
+        <ul>
+          <% category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+
+    <% icons = [
+      'bank2',
+      'coin',
+      'safe-fill',
+      'truck',
+      'balloon-fill',
+      'bluetooth',
+      'bicycle',
+      'boombox-fill',
+      'box2-fill',
+      'building',
+      'cart-fill'
+    ] %>
+
+    <div class="form-group">
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          icon
+        </button>
+        <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton1">
+          <% icons.each do |img| %>
+            <li>
+              <%= f.label :icon, class: 'd-flex align-items-center gap-2' do %>
+                <i class="bi bi-<%= img %>"></i>
+                <%= f.radio_button :icon, img, class: 'form-check-input' %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer justify-content-start">
+    <% if category.persisted? %>
+      <div class="float-right">
+        <%= link_to 'Destroy', category, method: :delete, class: 'text_danger', data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <%= f.submit class: 'btn btn-primary float-left' %>
+  </div>
+<% end %>
