@@ -2,6 +2,7 @@
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">Add category</h5>
   </div>
+
   <div class="modal-body">
     <% if category.errors.any? %>
       <div id="error_explanation">
@@ -20,9 +21,36 @@
       <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
 
+    <% icons = [
+      'bank2',
+      'coin',
+      'safe-fill',
+      'truck',
+      'balloon-fill',
+      'bluetooth',
+      'bicycle',
+      'boombox-fill',
+      'box2-fill',
+      'building',
+      'cart-fill'
+    ] %>
+
     <div class="form-group">
-      <%= f.label :icon %><br />
-      <%= f.file_field :icon, accept: 'image/png,image/gif,image/jpeg' %>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          icon
+        </button>
+        <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton1">
+          <% icons.each do |img| %>
+            <li>
+              <%= f.label :icon, class: 'd-flex align-items-center gap-2' do %>
+                <i class="bi bi-<%= img %>"></i>
+                <%= f.radio_button :icon, img, class: 'form-check-input' %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 
