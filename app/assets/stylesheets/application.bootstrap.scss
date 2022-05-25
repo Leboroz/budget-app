@@ -1,12 +1,14 @@
 @use './variables' as *;
+
 @use './animations/alert' as *;
+
 @use './components/card';
+ 
 @use './pages/home';
 @use './pages/groups';
+@use './pages/transactions';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
 
 h1,
 h2,
@@ -24,6 +26,7 @@ h6 {
 body {
   margin: 0 auto;
   font-family: "Montserrat", sans-serif;
+  background-color: #eee;
 }
 
 .main {

@@ -21,35 +21,14 @@
       <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
 
-    <% icons = [
-      'bank2',
-      'coin',
-      'safe-fill',
-      'truck',
-      'balloon-fill',
-      'bluetooth',
-      'bicycle',
-      'boombox-fill',
-      'box2-fill',
-      'building',
-      'cart-fill'
-    ] %>
 
     <div class="form-group">
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle mt-2" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          icon
-        </button>
-        <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton1">
-          <% icons.each do |img| %>
-            <li>
-              <%= f.label :icon, class: 'd-flex align-items-center gap-2' do %>
-                <i class="bi bi-<%= img %>"></i>
-                <%= f.radio_button :icon, img, class: 'form-check-input' %>
-              <% end %>
-            </li>
+        <%= f.select :icon, [], {}, { class: "btn btn-secondary dropdown-toggle mt-3" } do %>
+          <% icons.each do |category, icon| %>
+            <option  value="<%= category %>"><%= category %></option>
           <% end %>
-        </ul>
+        <% end %>
       </div>
     </div>
   </div>
