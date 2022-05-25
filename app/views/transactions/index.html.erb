@@ -8,9 +8,9 @@
       <hr />
       <div>
         <h3 class="display-6"><%= group_transaction.payment.name %></h3>
-        <div class="d-flex gap-2">
+        <div class="d-flex align-items-center py-1 gap-2">
           <i class="bi bi-calendar fs-5"></i>
-          <h6><%= group_transaction.payment.created_at %></h6>
+          <h6 class="m-0"><%= group_transaction.payment.created_at %></h6>
         </div>
       </div>  
     <% end %>
