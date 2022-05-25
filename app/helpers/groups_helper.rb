@@ -5,7 +5,7 @@ module GroupsHelper
       'Accounts' => 'bank2',
       'Crypto' => 'coin',
       'Savings' => 'safe-fill',
-      'shipping' => 'truck',
+      'Shipping' => 'truck',
       'Fun' => 'balloon-fill',
       'Media' => 'boombox-fill',
       'Packages' => 'box2-fill',

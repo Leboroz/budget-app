@@ -1,7 +1,7 @@
 <section class="transactions p-3 d-flex flex-column justify-content-between">
   <article class="transactions_card p-3 rounded">
     <header class="d-flex gap-3 align-items-center">
-      <i class="bi bi-<%= @group.icon %>"></i>
+      <i class="bi bi-<%= icons[@group.icon] %>"></i>
       <h2 class="display-5"><%= @group.name %></h2>
     </header>
     <% @group.group_transactions.each do |group_transaction| %>
