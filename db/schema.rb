@@ -29,13 +29,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_24_184102) do
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.money "total_amount", scale: 2
+    t.float "total_amount"
     t.index ["author_id"], name: "index_groups_on_author_id"
   end
 
   create_table "payments", force: :cascade do |t|
     t.string "name"
-    t.money "amount", scale: 2
+    t.float "amount"
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
