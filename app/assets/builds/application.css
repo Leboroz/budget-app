@@ -17869,7 +17869,7 @@ textarea.form-control-lg {
   height: 100%;
 }
 .home .splash {
-  background: no-repeat border-box url("/assets/splash.png") center;
+  background: no-repeat border-box asset_url("splash.png") center;
   background-size: 90%;
   background-color: #fff;
 }
