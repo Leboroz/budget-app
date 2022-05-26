@@ -6,7 +6,7 @@ class GroupTransaction < ApplicationRecord
   after_destroy :decrease_total_amount
 
   private
-  
+
   def increase_total_amount
     group.total_amount = 0 if group.total_amount.nil?
     group.total_amount += payment.amount

@@ -4,5 +4,5 @@ class Payment < ApplicationRecord
   has_many :groups, through: :group_transactions
 
   validates :name, presence: true
-  validates :amount, presence:true, numericality: { only_float: true }
+  validates :amount, presence: true, numericality: { only_float: true }
 end

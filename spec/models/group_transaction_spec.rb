@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GroupTransaction, type: :model do
-  subject { GroupTransaction.new(group: FactoryBot.create(:group), payment: FactoryBot.create(:payment))}
+  subject { GroupTransaction.new(group: FactoryBot.create(:group), payment: FactoryBot.create(:payment)) }
   before { subject.save }
 
   describe '#increase_total_amount' do
