@@ -1,0 +1,12 @@
+@mixin alert {
+  @keyframes slide-in-out {
+    30%,
+    70% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+}

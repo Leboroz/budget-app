@@ -1,11 +1,49 @@
-@font-face {
-  font-family: nova;
-  src: url(../fonts/Proxima-Nova/Proxima Nova Font.otf);
+@use './variables' as *;
+@use './animations/alert' as *;
+@use './components/card';
+@use './pages/home';
+@use './pages/groups';
+@use './pages/transactions';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
 }
 
-h1 {
-  font-family: nova;
+* {
+  box-sizing: border-box;
 }
 
-@import 'bootstrap/scss/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons';
+body {
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  background-color: #eee;
+}
+
+.main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-gray {
+  color: rgba($text-color, $alpha: 0.6);
+}
+
+.alert {
+  transform: translate(-100%);
+  animation: slide-in-out 3s ease forwards;
+}
+
+.section {
+  background-color: #eee;
+  height: 100%;
+}
+
+@include alert;

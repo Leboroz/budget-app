@@ -1,0 +1,38 @@
+<section class="transactions p-3 d-flex flex-column justify-content-between">
+  <article class="transactions_card p-3 rounded">
+    <header class="d-flex gap-3 align-items-center">
+      <i class="bi bi-<%= icons[@group.icon] %>"></i>
+      <h2 class="display-5"><%= @group.name %></h2>
+    </header>
+    <% @group.group_transactions.each do |group_transaction| %>
+      <hr />
+      <div>
+        <h3 class="display-6"><%= group_transaction.payment.name %></h3>
+        <div class="d-flex align-items-center py-1 gap-2">
+          <i class="bi bi-calendar fs-5"></i>
+          <h6 class="m-0"><%= group_transaction.payment.created_at %></h6>
+        </div>
+      </div>  
+    <% end %>
+    <% if @group.total_amount %>
+      <hr />
+      <div class="d-flex justify-content-between align-items-center">
+        <h2>TOTAL PAYMENT</h2>
+        <span><%= number_to_currency @group.total_amount %></span>
+      </div>
+    <% end %>
+  </article>
+</section>
+
+<div class="bg-secondary p-2 d-flex">
+  <button type="button" class="btn btn-outline-light flex-grow-1" data-bs-toggle="modal" data-bs-target="#newCategoryModal">
+    Add new transaction
+  </button>
+  <div class="modal fade" id="newCategoryModal" tabindex="-1" aria-labelledby="newCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <%= render partial: 'transactions/add_transaction_form', locals: { transaction: Payment.new } %>
+      </div>
+    </div>
+  </div>
+</div>
