@@ -10,13 +10,11 @@ class TransactionsController < ApplicationController
       payment = Payment.new(name: transactions_params[:name], amount: transactions_params[:amount],
                             author: current_user)
       next unless payment.save
-
       gt = GroupTransaction.new(group:, payment:)
-      if gt.save
-        flash[:success] = 'Transaction created successfully'
-        redirect_back fallback_location: '/'
-      end
+      gt.save
     end
+    flash[:success] = 'Transaction created successfully'
+    redirect_back fallback_location: '/'
   end
 
   private
