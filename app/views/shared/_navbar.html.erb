@@ -23,8 +23,10 @@
           <a class="nav-link active" aria-current="page" href="#">Home</a>
           <% link_to 'Home', '#', class: "nav-link #{ current_page?('/') ? 'active' : '' }" %>
         </li>
-        <li>
+        <% if current_user %>
           <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
+        <% end %>
+        <li>
         </li>
       </ul>
     </div>

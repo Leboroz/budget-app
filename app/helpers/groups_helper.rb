@@ -1,5 +1,4 @@
 module GroupsHelper
-
   def icons
     {
       'Accounts' => 'bank2',

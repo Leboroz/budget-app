@@ -6,19 +6,18 @@ class TransactionsController < ApplicationController
 
   def create
     groups = Group.find(transactions_params[:groups].reject(&:empty?))
-    new_transaction = groups.each do |group|
-      payment = Payment.new(name: transactions_params[:name], amount: transactions_params[:amount], author: current_user) 
-      if payment.save
-        gt = GroupTransaction.new(group:, payment:)
-        if gt.save
-          flash[:success] = 'Transaction created successfully'
-          redirect_back fallback_location: '/'
-        end
-      end
+    groups.each do |group|
+      payment = Payment.new(name: transactions_params[:name], amount: transactions_params[:amount],
+                            author: current_user)
+      next unless payment.save
+      gt = GroupTransaction.new(group:, payment:)
+      gt.save
     end
+    flash[:success] = 'Transaction created successfully'
+    redirect_back fallback_location: '/'
   end
 
-  private 
+  private
 
   def transactions_params
     params.require(:transaction).permit(:name, :amount, groups: [])
