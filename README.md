@@ -78,7 +78,7 @@ For you to see the styling being applied in the browser during development
 
 ## Authors
 
- 👤 **ALeonardoAlbornozA**
+ 👤 **LeonardoAlbornoz**
 
 
  Platform | Badge |
@@ -90,6 +90,10 @@ For you to see the styling being applied in the browser during development
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
+
+## Acknowledgements
+
+  [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) the [author of the original design](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
 
 ## Show your support
 
