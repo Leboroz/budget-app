@@ -17869,7 +17869,8 @@ textarea.form-control-lg {
   height: 100%;
 }
 .home .splash {
-  background: no-repeat border-box asset_url("splash.png") center;
+  background: url("splash.png") center;
+  background-repeat: no-repeat;
   background-size: 90%;
   background-color: #fff;
 }
