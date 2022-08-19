@@ -17,6 +17,15 @@ class TransactionsController < ApplicationController
     redirect_back fallback_location: '/'
   end
 
+  def destroy
+    if GroupTransaction.find_by(group_id: params[:group_id], payment_id: params[:id]).destroy
+      flash[:success] = 'transaction item has been deleted'
+    else
+      flash[:alert] = 'transaction item could not be deleted'
+    end
+    redirect_back fallback_location: '/'
+  end
+
   private
 
   def transactions_params

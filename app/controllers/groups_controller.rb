@@ -17,6 +17,15 @@ class GroupsController < ApplicationController
     end
   end
 
+  def destroy
+    if Group.find(params[:id]).destroy
+      flash[:success] = 'Group item has been deleted'
+    else
+      flash[:alert] = 'Group item could not be deleted'
+    end
+    redirect_back fallback_location: '/'
+  end
+
   private
 
   def groups_params

@@ -14,10 +14,16 @@
             <h6 class="m-0"><%= group_transaction.payment.created_at %></h6>
           </div>
         </div>  
-        <span class="pt-2"><%= number_to_currency group_transaction.payment.amount %></span>
+        <div class="d-flex align-items-center gap-1">
+          <span class="pt-2"><%= number_to_currency group_transaction.payment.amount %></span>
+          <%= button_to group_transaction_path(@group.id, group_transaction.payment.id), method: :delete, class: "btn" do  %>
+            <i class="bi bi-trash fs-3 text-danger"></i>
+          <% end %>
+        </div>
       </div>
     <% end %>
-    <% if @group.total_amount %>
+    <% amount = @group.total_amount %>
+    <% if amount && amount > 0.0 %>
       <hr />
       <div class="d-flex justify-content-between align-items-center">
         <h2>TOTAL PAYMENT</h2>
