@@ -1,34 +1,30 @@
-<nav class="navbar navbar-dark navbar-expand-lg bg-primary">
-  <div class="container-fluid flex-row-reverse">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <h1 class="display-6 text-white">
-      <% if controller_name == 'groups' %>
-        Groups
-      <% elsif controller_name == 'transactions' %>
-        Transactions
-      <% end %>
-    </h1>
-    <% if current_page?(root_path) %>
-      <i class="bi bi-search fs-1 text-white"></i>
-    <% elsif %>
-      <%= link_to root_path do %>
-        <i class="bi bi-arrow-left fs-1 text-white"></i>
-      <% end %>
-    <% end %>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <% link_to 'Home', '#', class: "nav-link #{ current_page?('/') ? 'active' : '' }" %>
-        </li>
-        <% if current_user %>
-          <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid flex-sm-row-reverse">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <% if current_user %>
+      <h1 class="display-6 text-white">
+        <% if controller_name == 'groups' %>
+          Groups
+        <% elsif controller_name == 'transactions' %>
+          Transactions
         <% end %>
-        <li>
-        </li>
-      </ul>
-    </div>
+      </h1>
+      <% if current_page?(root_path) %>
+        <i class="bi bi-search fs-1 text-white"></i>
+      <% elsif %>
+        <%= link_to root_path do %>
+          <i class="bi bi-arrow-left fs-1 text-white"></i>
+        <% end %>
+      <% end %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+            <%= button_to 'Log out', destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary' %>
+          <li>
+          </li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </nav>

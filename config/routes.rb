@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   root "groups#index"
-  resources :groups, only: %i[index create] do
-    resources :transactions, only: %i[index create]
+  resources :groups, only: %i[index create destroy] do
+    resources :transactions, only: %i[index create destroy]
   end
 end

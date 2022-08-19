@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all
+    @groups = current_user.groups
   end
 
   def create
@@ -15,6 +15,15 @@ class GroupsController < ApplicationController
         end
       end
     end
+  end
+
+  def destroy
+    if Group.find(params[:id]).destroy
+      flash[:success] = 'Group item has been deleted'
+    else
+      flash[:alert] = 'Group item could not be deleted'
+    end
+    redirect_back fallback_location: '/'
   end
 
   private
