@@ -19,7 +19,7 @@
                 <% if amount && amount > 0.0 %>
                   <span class="pt-2">total: <%= number_to_currency group.total_amount %></span>
                 <% end %>
-                <%= button_to group_path(group.id), method: :delete, class: "btn btn-danger-outline" do  %>
+                <%= button_to group_path(group.id), method: :delete, class: "btn" do  %>
                   <i class="bi bi-trash fs-3 text-danger"></i>
                 <% end %>
               </div>

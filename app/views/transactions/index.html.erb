@@ -16,7 +16,7 @@
         </div>  
         <div class="d-flex align-items-center gap-1">
           <span class="pt-2"><%= number_to_currency group_transaction.payment.amount %></span>
-          <%= button_to group_transaction_path(@group.id, group_transaction.payment.id), method: :delete, class: "btn btn-danger-outline" do  %>
+          <%= button_to group_transaction_path(@group.id, group_transaction.payment.id), method: :delete, class: "btn" do  %>
             <i class="bi bi-trash fs-3 text-danger"></i>
           <% end %>
         </div>
