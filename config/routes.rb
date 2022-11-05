@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     root 'home#index', as: :unauthenticated_root
   end
 
-  root "groups#index"
+  root 'groups#index'
   resources :groups, only: %i[index create destroy] do
     resources :transactions, only: %i[index create destroy]
   end

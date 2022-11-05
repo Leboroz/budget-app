@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full bg-gray-50">
   <head>
     <title>RailsBudgetApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,10 +8,11 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <div class="main">
+  <body class="h-full">
+    <div class="h-full">
       <%= render partial: 'shared/navbar' %>
       <% if notice %>
         <div class="alert alert-success position-absolute top-0 start-0"><%= notice %></div>
