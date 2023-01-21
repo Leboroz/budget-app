@@ -12,13 +12,15 @@
 
   <body>
     <div class="main">
-      <%= render partial: 'shared/navbar' %>
-      <% if notice %>
-        <div class="alert alert-success position-absolute top-0 start-0"><%= notice %></div>
-      <% elsif alert %>
-        <div class="alert alert-danger position-absolute top-0 start-0"><%= alert %></div>
-      <% end %>
-      <%= yield %>
+      <div class="phone">
+        <%= render partial: 'shared/navbar' %>
+        <% if notice %>
+          <div class="alert alert-success position-absolute top-0 start-0"><%= notice %></div>
+        <% elsif alert %>
+          <div class="alert alert-danger position-absolute top-0 start-0"><%= alert %></div>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>

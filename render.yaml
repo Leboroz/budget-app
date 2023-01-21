@@ -1,0 +1,18 @@
+databases:
+  - name: rails_budget_app
+    databaseName: rails_budget_app_production
+    user: rails_budget_app
+
+services:
+  - type: web
+    name: rails_budget_app
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: mysite
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
