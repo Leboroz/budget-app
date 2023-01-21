@@ -1,6 +1,6 @@
 databases:
   - name: rails_budget_app
-    databaseName: rails_budget_app_production
+    databaseName: rails_budget_app
     user: rails_budget_app
     plan: free
 
@@ -14,7 +14,7 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: rails_budget_app_production
+          name: rails_budget_app
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
