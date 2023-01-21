@@ -2,11 +2,13 @@ databases:
   - name: rails_budget_app
     databaseName: rails_budget_app_production
     user: rails_budget_app
+    plan: free
 
 services:
   - type: web
     name: rails_budget_app
     env: ruby
+    plan: free
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
