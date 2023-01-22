@@ -5,7 +5,7 @@
 
 > This is a ruby on rails application that allows to create users and authenticates them using devise. When users are loged in the can create groups of transactions and see the total amout. Users can create transactions for one or many groups.
 
-## Live [here](https://leboroz-budget-app.herokuapp.com/)
+## Live [here](https://rails-budget-app-fqfy.onrender.com/)
 
 ### Requirements
 In order to work on this project, you need to have the following dependencies installed: 
